@@ -44,6 +44,7 @@ On a normal turn a player might take the following steps:
 * Redeploy
 * Score Victory coins
 
+---
 * Select a New Race: This only happens on the first turn of the game and on later turns after the player has placed his previous race in decline.
 
 The active player can select the first race from the racial queue for free, or he can take a further one by placing a victory coin on each race he skips. If someone later takes a previously skipped race, he takes all the coins that were placed on it.
