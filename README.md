@@ -31,21 +31,33 @@ one unit of the race in question on a little square chit. You know what race you
 
 The object of Small World is to earn the most victory points through the control of territories over the course of the game. The catch is that you won't be able to do so with just one race. Instead, you'll need to play 2-5 different races over the course of the game to optimize your points.
 
-### Setup:###
+### Setup: ###
 Lay out the game board and place a mountain on each mountain space. Place "Lost Tribe" markers on the board as indicated. (These are starting pieces that make it harder to initially take over some territories.)
 
 Near the board the six possible races are revealed by putting 6 special power badges together with 6 racial banners. These combinations are placed in order, so that there's a "first" race and a "last" race.
 Each player takes 5 coins.
 
 ### A Normal Turn: ### 
-On a normal turn a player might take the following steps:  Select a New Race
+On a normal turn a player might take the following steps:
+* Select a New Race
 * Conquer!
 * Redeploy
 * Score Victory coins
 
-** Select a New Race:
-This only happens on the first turn of the game and on later turns after the player has placed his previous race in decline.
-The active player can select the first race from the racial queue for free, or he can take a further one by placing a victory coin on each race he skips. If someone later takes a previously skipped race, he takes all the coins that were placed on it.
+  * Select a New Race: This only happens on the first turn of the game and on later turns after the player has placed his previous race in decline.
 
+The active player can select the first race from the racial queue for free, or he can take a further one by placing a victory coin on each race he skips. If someone later takes a previously skipped race, he takes all the coins that were placed on it.
 When a player selects a race, he takes a certain number of race tokens for the race. The exact number is determined by values shown on the special power badge and the race banner. (Generally, the better the abilities, the fewer tokens you get.)
+
+  * Conquer!: You'll start each turn with a number of race tokens in your hand. For your first turn, that's all of the tokens you just got for the race. For later turns, you pick up pieces from the board, leaving just one in each space.
+
+You can now use those tokens to attack a new region. On the first turn you're using any race, your first attack can be to any region adjacent to the edge of the board (or to an exterior sea), but later on you must attack adjacent to existing units.
+
+There's very little randomness in Small World. You can take a region by paying 2 race tokens + 1 race token per mountain, opposing race token, or other defensive piece on the space. You place those tokens you spent in the space you're conquering, and your opponent is forced to take his pieces off the board. He loses one and gets to replace the rest at the end of your turn.
+
+The Last Conquest. At the end of a series of conquests, you might not have enough pieces to attack another province. You can then declare one final attack, and roll the "reinforcement" die. If the number of chits shown on the die plus the number still in your hand is enough to take the region, you do!
+
+  * Redeploy: At the end of your turn you can rearrange your race tokens as you see fit, as long as you leave at least one on each space.
+  * Score Victory Coins: Now you score your victory points. You get 1 coin per space you control (plus, possibly, others due to special powers, which we'll return to momentarily). After that, it's the next player's turn.
+
 
