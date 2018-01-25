@@ -9,7 +9,9 @@ The project is about writing a C++ computer game that allows the user to play a 
 
 ## Problem Statement
 SMALL WORLD is a multiplayer board game (2 to 5 players). Space is getting tight in Small World. There are just too many races living off your land - land your ancestors bequeathed to you in hopes you would build an empire with which you could dominate the world.
+
 Picking a fantasy Race and Special Power combination, you must use their unique racial traits and skills to conquer surrounding Regions and amass Victory coins - often at the expense of weaker neighbors. Placing troops (Race tokens) in various Regions, and conquering adjacent lands, you earn Victory coins for each Region you occupy at the end of your turn. Eventually, your race will become increasingly over-extended (like those you have already crushed!) and you will need to abandon your civilization and look for another. The key to your victory is knowing when to push your empire into decline and ride a new one to supremacy in the land of Small World!
+
 The SMALL WORLD game consists of a connected graph map representing a world map, where each node is a region and each edge represents adjacency between regions. Two or more players can play the game by earning the most victory points through the control of territories over the course of the game.
 
 ## Parts/features of the game
@@ -28,6 +30,22 @@ one unit of the race in question on a little square chit. You know what race you
 ## The Game Design
 
 The object of Small World is to earn the most victory points through the control of territories over the course of the game. The catch is that you won't be able to do so with just one race. Instead, you'll need to play 2-5 different races over the course of the game to optimize your points.
-Setup: Lay out the game board and place a mountain on each mountain space. Place "Lost Tribe" markers on the board as indicated. (These are starting pieces that make it harder to initially take over some territories.)
+
+### Setup:###
+Lay out the game board and place a mountain on each mountain space. Place "Lost Tribe" markers on the board as indicated. (These are starting pieces that make it harder to initially take over some territories.)
+
 Near the board the six possible races are revealed by putting 6 special power badges together with 6 racial banners. These combinations are placed in order, so that there's a "first" race and a "last" race.
 Each player takes 5 coins.
+
+### A Normal Turn: ### 
+On a normal turn a player might take the following steps:  Select a New Race
+* Conquer!
+* Redeploy
+* Score Victory coins
+
+** Select a New Race:
+This only happens on the first turn of the game and on later turns after the player has placed his previous race in decline.
+The active player can select the first race from the racial queue for free, or he can take a further one by placing a victory coin on each race he skips. If someone later takes a previously skipped race, he takes all the coins that were placed on it.
+
+When a player selects a race, he takes a certain number of race tokens for the race. The exact number is determined by values shown on the special power badge and the race banner. (Generally, the better the abilities, the fewer tokens you get.)
+
