@@ -58,6 +58,24 @@ There's very little randomness in Small World. You can take a region by paying 2
 The Last Conquest. At the end of a series of conquests, you might not have enough pieces to attack another province. You can then declare one final attack, and roll the "reinforcement" die. If the number of chits shown on the die plus the number still in your hand is enough to take the region, you do!
 
   * Redeploy: At the end of your turn you can rearrange your race tokens as you see fit, as long as you leave at least one on each space.
+  
   * Score Victory Coins: Now you score your victory points. You get 1 coin per space you control (plus, possibly, others due to special powers, which we'll return to momentarily). After that, it's the next player's turn.
 
 
+### A Decline Turn: ###
+Instead of taking a normal turn and doing all the above, you can instead take a "decline" turn. This means that you flip over your race banner and special power badge, losing some or all of the powers for that race. You also decrease the number of your declining race's tokens in each region to 1, and flip over those remaining tokens to mark that you're in decline.
+If you had any previous races still in decline, you discard those entirely.
+
+Now you score your declined race as usual. You're going to get to keep scoring all of your declined markers for every turn they survive.
+
+On the next turn, you get to select a new race at the start of your turn (and having two races around, your current race and your decline race, both of them scoring points, is why you want to go into decline in the first place).
+
+
+### The Special Powers: ### 
+Each race typically has two special powers, one for their special power badge and one for their race banner. These do a variety of things, and are what really make the game work. Some give extra victory points for certain terrains, while others make certain terrains easier to conquer. Some give you various defensive markers to put on your terrains. Finally, some modify individual rules for that race. For example, the elves never lose their race tokens when they lose terrain, the ghouls don't discard extra race tokens when they go into decline, and the stout special power lets you go into decline at the end of a normal turn.
+
+### Ending the Game: ### 
+The game ends after a set number of turns determined by the number of players. The player with the most victory coins wins.
+
+Reference
+[1] SMALL WORLD , Philippe Keyaerts, available on the Moodle Course homepage, or under https://ncdn1.daysofwonder.com/smallworld/en/img/sw_rules_2015_en.pdf
