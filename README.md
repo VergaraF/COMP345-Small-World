@@ -1,7 +1,7 @@
-# COMP345-Small-World
+
 # COMP354: Advanced Program Design with C++ project
 
-# General Information
+# General Information #
 
 ## COMP 345-Winter 2018 Project Description
 
