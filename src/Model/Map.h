@@ -6,15 +6,35 @@
  */
 
 #include <iostream>
+#include <region.h>
+#include <player.h>
+
 #ifndef MODEL_MAP_H_
 #define MODEL_MAP_H_
 
-//implementation of a undirected unweighed graph
+struct RegionListNode {
+	public:
+	Region data;
+	RegionListNode *next;
+
+};
+struct RegionList {
+	public:
+	RegionListNode *head;
+};
+
+//implementation of an undirected unweighed graph
+//Vertex = region
+//Edge
+//Graph - Map
 class Map
 {
 public :
-	//create a V-vertex graph with no edged
-	Map::Map(int V);
+	int V;
+	RegionList *arr;
+
+	//create a V-vertex graph with no edges
+	Map::Map(int V); //vertex = regions
 	//read a graph(map) from map filename.
 	Map::Map(std::string fileMapNamePath);
 	//number of vertices
@@ -22,10 +42,11 @@ public :
 	//number of edges
 	int E();
 	//add edge v-w to this graph
+	void addEdge(Region &v1, Region &v2);
+	//add vertex (region)
+	Region addRegion(Region &adjacentTo);
 
 };
-
-
 
 
 #endif /* MODEL_MAP_H_ */

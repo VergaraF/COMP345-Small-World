@@ -6,7 +6,7 @@
  */
 
 #include <iostream>
-using namespace std;
+
 
 #ifndef MODEL_PLAYER_H_
 #define MODEL_PLAYER_H_
@@ -14,7 +14,7 @@ using namespace std;
 class Player
 {
 public:
-	string name;
+	std::string name;
 };
 
 

@@ -8,12 +8,12 @@
 #ifndef MODEL_REGION_H_
 #define MODEL_REGION_H_
 
+
 class Region
 {
 public:
 	Player ownedBy;
 	int tokens;
-
 };
 
 
