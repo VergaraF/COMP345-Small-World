@@ -44,12 +44,12 @@ On a normal turn a player might take the following steps:
 * Redeploy
 * Score Victory coins
 
-  * Select a New Race: This only happens on the first turn of the game and on later turns after the player has placed his previous race in decline.
+      * Select a New Race: This only happens on the first turn of the game and on later turns after the player has placed his previous race in decline.
 
 The active player can select the first race from the racial queue for free, or he can take a further one by placing a victory coin on each race he skips. If someone later takes a previously skipped race, he takes all the coins that were placed on it.
 When a player selects a race, he takes a certain number of race tokens for the race. The exact number is determined by values shown on the special power badge and the race banner. (Generally, the better the abilities, the fewer tokens you get.)
 
-  * Conquer!: You'll start each turn with a number of race tokens in your hand. For your first turn, that's all of the tokens you just got for the race. For later turns, you pick up pieces from the board, leaving just one in each space.
+     * Conquer!: You'll start each turn with a number of race tokens in your hand. For your first turn, that's all of the tokens you just got for the race. For later turns, you pick up pieces from the board, leaving just one in each space.
 
 You can now use those tokens to attack a new region. On the first turn you're using any race, your first attack can be to any region adjacent to the edge of the board (or to an exterior sea), but later on you must attack adjacent to existing units.
 
@@ -57,9 +57,9 @@ There's very little randomness in Small World. You can take a region by paying 2
 
 The Last Conquest. At the end of a series of conquests, you might not have enough pieces to attack another province. You can then declare one final attack, and roll the "reinforcement" die. If the number of chits shown on the die plus the number still in your hand is enough to take the region, you do!
 
-  * Redeploy: At the end of your turn you can rearrange your race tokens as you see fit, as long as you leave at least one on each space.
+    * Redeploy: At the end of your turn you can rearrange your race tokens as you see fit, as long as you leave at least one on each space.
   
-  * Score Victory Coins: Now you score your victory points. You get 1 coin per space you control (plus, possibly, others due to special powers, which we'll return to momentarily). After that, it's the next player's turn.
+    * Score Victory Coins: Now you score your victory points. You get 1 coin per space you control (plus, possibly, others due to special powers, which we'll return to momentarily). After that, it's the next player's turn.
 
 
 ### A Decline Turn: ###
@@ -77,5 +77,7 @@ Each race typically has two special powers, one for their special power badge an
 ### Ending the Game: ### 
 The game ends after a set number of turns determined by the number of players. The player with the most victory coins wins.
 
+
 Reference
+
 [1] SMALL WORLD , Philippe Keyaerts, available on the Moodle Course homepage, or under https://ncdn1.daysofwonder.com/smallworld/en/img/sw_rules_2015_en.pdf
