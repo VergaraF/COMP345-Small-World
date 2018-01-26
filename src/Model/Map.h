@@ -45,8 +45,6 @@ public :
 	void addEdge(Region &v1, Region &v2);
 	//add vertex (region)
 	Region addRegion(Region &adjacentTo);
-
 };
-
 
 #endif /* MODEL_MAP_H_ */

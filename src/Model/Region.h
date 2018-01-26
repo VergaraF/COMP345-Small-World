@@ -11,11 +11,10 @@
 
 class Region
 {
-public:
+private:
 	Player ownedBy;
 	int tokens;
 };
-
 
 
 #endif /* MODEL_REGION_H_ */
