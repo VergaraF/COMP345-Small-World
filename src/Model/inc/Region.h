@@ -13,15 +13,15 @@ class Region
 {
 private:
 	Player& ownedBy;
-	int tokens;
+	unsigned int tokens;
 
 public:
-	Region Region(Player&, int);
+	Region Region(Player&, unsigned int);
 	Region();
 	Player getOwnerPlayer();
 	int getTokens();
 	void setOwnerPlayer(Player&);
-	void setTokens(int);
+	void setTokens(unsigned int);
 };
 
 

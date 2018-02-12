@@ -11,10 +11,10 @@
 class Region {
 private:
 	Player& ownedBy;
-	int tokens;
+	unsigned int tokens;
 
 public:
-	Region(Player& pl, int tokens = 0){
+	Region(Player& pl, unsigned int tokens = 0){
 		this->ownedBy = pl;
 		this->tokens = tokens;
 	}
@@ -27,7 +27,7 @@ public:
 		return this->ownedBy;
 	}
 
-	int getTokens(){
+	unsigned int getTokens(){
 		return this->tokens;
 	}
 
@@ -35,7 +35,7 @@ public:
 		this->ownedBy = pl;
 	}
 
-	void setTokens(int token){
+	void setTokens(unsigned int token){
 		this->tokens = token;
 	}
 
