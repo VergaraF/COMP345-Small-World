@@ -7,9 +7,8 @@
 //============================================================================
 
 #include <iostream>
-using namespace std;
 
 int main() {
-	cout << "Test" << endl; // prints Test
+	std::cout << "Test" << std::endl; // prints Test
 	return 0;
 }
