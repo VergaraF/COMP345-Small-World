@@ -147,8 +147,108 @@ public:
 	}
 
 	void createMapForThreePlayers(Region* regions, Graph::vertex_descriptor* vertexDescriptors){
+		//As for MapForTwoPlayers function, this can be optimized using a for loop.
+		//I'll apply that approach after I get my "bruteforce" solution
 
+		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[1]);
+		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[7]);
+		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[12]);
 
+		makeRegionConnection(vertexDescriptors[1], vertexDescriptors[2]);
+		makeRegionConnection(vertexDescriptors[1], vertexDescriptors[7]);
+		makeRegionConnection(vertexDescriptors[1], vertexDescriptors[8]);
+
+		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[3]);
+		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[8]);
+		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[9]);
+
+		makeRegionConnection(vertexDescriptors[3], vertexDescriptors[4]);
+		makeRegionConnection(vertexDescriptors[3], vertexDescriptors[9]);
+		makeRegionConnection(vertexDescriptors[3], vertexDescriptors[10]);
+
+		makeRegionConnection(vertexDescriptors[4], vertexDescriptors[5]);
+		makeRegionConnection(vertexDescriptors[4], vertexDescriptors[10]);
+		makeRegionConnection(vertexDescriptors[4], vertexDescriptors[11]);
+
+		makeRegionConnection(vertexDescriptors[5], vertexDescriptors[6]);
+		makeRegionConnection(vertexDescriptors[5], vertexDescriptors[11]);
+
+		makeRegionConnection(vertexDescriptors[6], vertexDescriptors[11]);
+		makeRegionConnection(vertexDescriptors[6], vertexDescriptors[16]);
+		makeRegionConnection(vertexDescriptors[6], vertexDescriptors[17]);
+
+		makeRegionConnection(vertexDescriptors[7], vertexDescriptors[8]);
+		makeRegionConnection(vertexDescriptors[7], vertexDescriptors[12]);
+
+		makeRegionConnection(vertexDescriptors[8], vertexDescriptors[9]);
+		makeRegionConnection(vertexDescriptors[8], vertexDescriptors[12]);
+		makeRegionConnection(vertexDescriptors[8], vertexDescriptors[13]);
+
+		makeRegionConnection(vertexDescriptors[9], vertexDescriptors[10]);
+		makeRegionConnection(vertexDescriptors[9], vertexDescriptors[13]);
+		makeRegionConnection(vertexDescriptors[9], vertexDescriptors[14]);
+
+		makeRegionConnection(vertexDescriptors[10], vertexDescriptors[11]);
+		makeRegionConnection(vertexDescriptors[10], vertexDescriptors[14]);
+		makeRegionConnection(vertexDescriptors[10], vertexDescriptors[15]);
+
+		makeRegionConnection(vertexDescriptors[11], vertexDescriptors[15]);
+		makeRegionConnection(vertexDescriptors[11], vertexDescriptors[16]);
+
+		makeRegionConnection(vertexDescriptors[12], vertexDescriptors[13]);
+		makeRegionConnection(vertexDescriptors[12], vertexDescriptors[18]);
+
+		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[14]);
+		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[18]);
+		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[19]);
+
+		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[15]);
+		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[19]);
+		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[20]);
+		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[21]);
+
+		makeRegionConnection(vertexDescriptors[15], vertexDescriptors[16]);
+		makeRegionConnection(vertexDescriptors[15], vertexDescriptors[21]);
+		makeRegionConnection(vertexDescriptors[15], vertexDescriptors[22]);
+
+		makeRegionConnection(vertexDescriptors[16], vertexDescriptors[17]);
+		makeRegionConnection(vertexDescriptors[16], vertexDescriptors[22]);
+		makeRegionConnection(vertexDescriptors[16], vertexDescriptors[23]);
+
+		makeRegionConnection(vertexDescriptors[17], vertexDescriptors[23]);
+		makeRegionConnection(vertexDescriptors[17], vertexDescriptors[29]);
+
+		makeRegionConnection(vertexDescriptors[18], vertexDescriptors[19]);
+		makeRegionConnection(vertexDescriptors[18], vertexDescriptors[24]);
+		makeRegionConnection(vertexDescriptors[18], vertexDescriptors[25]);
+
+		makeRegionConnection(vertexDescriptors[19], vertexDescriptors[20]);
+		makeRegionConnection(vertexDescriptors[19], vertexDescriptors[25]);
+		makeRegionConnection(vertexDescriptors[19], vertexDescriptors[26]);
+
+		makeRegionConnection(vertexDescriptors[20], vertexDescriptors[21]);
+		makeRegionConnection(vertexDescriptors[20], vertexDescriptors[26]);
+		makeRegionConnection(vertexDescriptors[20], vertexDescriptors[27]);
+
+		makeRegionConnection(vertexDescriptors[21], vertexDescriptors[22]);
+		makeRegionConnection(vertexDescriptors[21], vertexDescriptors[27]);
+		makeRegionConnection(vertexDescriptors[21], vertexDescriptors[28]);
+
+		makeRegionConnection(vertexDescriptors[22], vertexDescriptors[23]);
+		makeRegionConnection(vertexDescriptors[22], vertexDescriptors[28]);
+
+		makeRegionConnection(vertexDescriptors[23], vertexDescriptors[28]);
+		makeRegionConnection(vertexDescriptors[23], vertexDescriptors[29]);
+
+		makeRegionConnection(vertexDescriptors[24], vertexDescriptors[25]);
+
+		makeRegionConnection(vertexDescriptors[25], vertexDescriptors[26]);
+
+		makeRegionConnection(vertexDescriptors[26], vertexDescriptors[27]);
+
+		makeRegionConnection(vertexDescriptors[27], vertexDescriptors[28]);
+
+		makeRegionConnection(vertexDescriptors[28], vertexDescriptors[29]);
 	}
 
 	void makeRegionConnection(Graph::vertex_descriptor& region1, Graph::vertex_descriptor& region2){
