@@ -15,6 +15,16 @@
 
 typedef boost::undirected_graph<Region> Graph;
 
+enum Players{ TWO = 2,
+			  THREE = 3,
+			  FOUR = 4,
+			  FIVE = 5};
+
+enum Regions{ FOR_TWO_PLAYERS = 23,
+			  FOR_THREE_PLAYERS = 30,
+			  FOR_FOUR_PLAYERS = 39,
+			  FOR_FIVE_PLAYERS = 48};
+
 class GameMap{
 
 private:
@@ -28,6 +38,8 @@ public:
 	Graph getGameMap();
 	void makeRegionConnection(Graph::vertex_descriptor&, Graph::vertex_descriptor&);
 	void createMapForTwoPlayers(Region*, Graph::vertex_descriptor*);
+
+
 
 };
 

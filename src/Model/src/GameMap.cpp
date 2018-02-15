@@ -7,16 +7,9 @@
 
 #include <iostream>
 #include "Region.h"
+#include "GameMap.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
-
-typedef boost::undirected_graph<Region> Graph;
-
-enum Players{ TWO, THREE, FOUR, FIVE};
-enum Regions{ FOR_TWO_PLAYERS = 23,
-			  FOR_THREE_PLAYERS = 30,
-			  FOR_FOUR_PLAYERS = 39,
-			  FOR_FIVE_PLAYERS = 48};
 
 class GameMap{
 private:
@@ -38,7 +31,7 @@ public:
 				vertexDescriptors[i] = addRegion(gameRegions[i]);
 			}
 
-			createMapForTwoPlayers(gameRegions, vertexDescriptors);
+			createMapForTwoPlayers(vertexDescriptors);
 			break;
 		}
 		case(THREE): {
@@ -50,7 +43,7 @@ public:
 				vertexDescriptors[i] = addRegion(gameRegions[i]);
 			}
 
-			createMapForThreePlayers(gameRegions, vertexDescriptors);
+			createMapForThreePlayers(vertexDescriptors);
 			break;
 		}
 
@@ -61,16 +54,28 @@ public:
 				gameRegions[i] = new Region();
 				vertexDescriptors[i] = addRegion(gameRegions[i]);
 			}
-			createMapForFourPlayers(gameRegions, vertexDescriptors);
+			createMapForFourPlayers(vertexDescriptors);
 			break;
 		}
-		case(FIVE):{break;}
-		default: throw "Invalid number of players";
+		case(FIVE):{
+			Region gameRegions[FOR_FIVE_PLAYERS];
+			Graph::vertex_descriptor vertexDescriptors[FOR_FIVE_PLAYERS];
+			for (int i = 0; i < FOR_FIVE_PLAYERS; ++i){
+				gameRegions[i] = new Region();
+				vertexDescriptors[i] = addRegion(gameRegions[i]);
+			}
+			createMapForFourPlayers(vertexDescriptors);
+			break;
+		}
+		default: {
+			throw "Invalid number of players";
+			break;
+		}
 
 		}
 	}
 
-	void createMapForTwoPlayers(Region* regions, Graph::vertex_descriptor* vertexDescriptors){
+	void createMapForTwoPlayers(Graph::vertex_descriptor* vertexDescriptors){
 
 		//we can optimize this hard coded values by using a for loop and liked i to i++,
 		//except for three places where that rule does not apply.
@@ -155,7 +160,7 @@ public:
 
 	}
 
-	void createMapForThreePlayers(Region* regions, Graph::vertex_descriptor* vertexDescriptors){
+	void createMapForThreePlayers(Graph::vertex_descriptor* vertexDescriptors){
 		//As for MapForTwoPlayers function, this can be optimized using a for loop.
 		//I'll apply that approach after I get my "bruteforce" solution
 
@@ -260,7 +265,7 @@ public:
 		makeRegionConnection(vertexDescriptors[28], vertexDescriptors[29]);
 	}
 
-	void createMapForFourPlayers(Region* regions, Graph::vertex_descriptor* vertexDescriptors){
+	void createMapForFourPlayers(Graph::vertex_descriptor* vertexDescriptors){
 
 		//brute for solution
 		//TODO: Optimize using loops (or perhaps create a method that will take node1, connectedTo[index1, 2, 3, etc]
@@ -398,7 +403,7 @@ public:
 		makeRegionConnection(vertexDescriptors[37], vertexDescriptors[38]);
 	}
 
-	void createMapForFivePlayer(Region* regions, Graph::vertex_descriptor* vertexDescriptors){
+	void createMapForFivePlayer(Graph::vertex_descriptor* vertexDescriptors){
 		//Bruteforce solution
 		//TODO: Optimize as the other createMap functions
 		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[1]);
