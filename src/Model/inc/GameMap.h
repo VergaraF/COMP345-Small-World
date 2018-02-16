@@ -28,7 +28,7 @@ enum Regions{ FOR_TWO_PLAYERS = 23,
 class GameMap{
 
 private:
-	Graph gameMap;
+	Graph* gameMap;
 
 public:
 	GameMap();
@@ -36,7 +36,7 @@ public:
 	GameMap(int, Region*, Graph::vertex_descriptor*);
 	~GameMap();
 	Graph::vertex_descriptor addRegion(Region&);
-	Graph getGameMap();
+	Graph * getGameMap();
 	void makeRegionConnection(Graph::vertex_descriptor&, Graph::vertex_descriptor&);
 	void createMapForTwoPlayers(Graph::vertex_descriptor*);
 	void createMapForThreePlayers(Graph::vertex_descriptor*);

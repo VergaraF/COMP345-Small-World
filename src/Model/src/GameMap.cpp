@@ -10,7 +10,9 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
 
-GameMap::GameMap(){};
+GameMap::GameMap(){
+	this->gameMap = new Graph();
+};
 
 GameMap::GameMap(Players numberOfPlayers){
 	//There will be always at least 23 regions regardless number of players
@@ -563,15 +565,20 @@ void GameMap::createMapForFivePlayers(Graph::vertex_descriptor* vertexDescriptor
 	}
 
 void GameMap::makeRegionConnection(Graph::vertex_descriptor& region1, Graph::vertex_descriptor& region2){
-	this->gameMap.add_edge(region1, region2);
+	this->gameMap->add_edge(region1, region2);
 }
 
 Graph::vertex_descriptor GameMap::addRegion(Region& reg){
-	return this->gameMap.add_vertex(reg);
+	return this->gameMap->add_vertex(reg);
 }
 
-Graph GameMap::getGameMap(){
+Graph * GameMap::getGameMap(){
 	return this->gameMap;
+}
+
+GameMap::~GameMap(){
+	this->gameMap = NULL;
+	delete this->gameMap;
 }
 
 
