@@ -19,7 +19,7 @@ GameMap::GameMap(Players numberOfPlayers){
 				Region gameRegions[FOR_TWO_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_TWO_PLAYERS];
 				for (int i = 0; i < FOR_TWO_PLAYERS; ++i){
-					gameRegions[i] = new Region();
+					gameRegions[i] = Region();
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
 
@@ -31,7 +31,7 @@ GameMap::GameMap(Players numberOfPlayers){
 				Region gameRegions[FOR_THREE_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_THREE_PLAYERS];
 				for (int i = 0; i < FOR_THREE_PLAYERS; ++i){
-					gameRegions[i] = new Region();
+					//gameRegions[i] = new Region();
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
 
@@ -43,7 +43,7 @@ GameMap::GameMap(Players numberOfPlayers){
 				Region gameRegions[FOR_FOUR_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_FOUR_PLAYERS];
 				for (int i = 0; i < FOR_FOUR_PLAYERS; ++i){
-					gameRegions[i] = new Region();
+					//gameRegions[i] = new Region();
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
 				createMapForFourPlayers(vertexDescriptors);
@@ -53,7 +53,7 @@ GameMap::GameMap(Players numberOfPlayers){
 				Region gameRegions[FOR_FIVE_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_FIVE_PLAYERS];
 				for (int i = 0; i < FOR_FIVE_PLAYERS; ++i){
-					gameRegions[i] = new Region();
+				//	gameRegions[i] = new Region();
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
 				createMapForFourPlayers(vertexDescriptors);

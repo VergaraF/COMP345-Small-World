@@ -12,7 +12,7 @@
 class Region
 {
 private:
-	Player& ownedBy;
+	Player ownedBy;
 	unsigned int tokens;
 
 public:
