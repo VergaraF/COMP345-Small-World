@@ -13,7 +13,10 @@ GameMapDriver::GameMapDriver(){
 	this->gameMap = new GameMap();
 }
 
-GameMapDriver::~GameMapDriver(){};
+GameMapDriver::~GameMapDriver(){
+	this->gameMap = NULL;
+	delete this->gameMap;
+};
 
 GameMap * GameMapDriver::createGameMapForNumberOfPlayers(int players){
 		switch (players){
