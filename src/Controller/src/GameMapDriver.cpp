@@ -9,35 +9,38 @@
 #include <boost/graph/undirected_graph.hpp>
 #include "../inc/GameMapDriver.h"
 
+GameMapDriver::GameMapDriver(){
+	this->gameMap = new GameMap();
+}
 
-/*class GameMapDriver{
-private:
-	GameMap gameMap;
+GameMapDriver::~GameMapDriver(){};
 
-public:
-	GameMapDriver(){
-		this->gameMap = new GameMap();
-	}
-	~GameMapDriver(){}
-
-	GameMap createGameMapForNumberOfPlayers(int players){
+GameMap * GameMapDriver::createGameMapForNumberOfPlayers(int players){
 		switch (players){
 		case (TWO):{
+			this->gameMap = NULL;
+			delete this->gameMap;
 			this->gameMap = new GameMap(TWO);
 			return this->gameMap;
 			break;
 		}
 		case (THREE) : {
+			this->gameMap = NULL;
+			delete this->gameMap;
 			this->gameMap = new GameMap(THREE);
 			return this->gameMap;
 			break;
 		}
 		case (FOUR): {
+			this->gameMap = NULL;
+			delete this->gameMap;
 			this->gameMap = new GameMap(FOUR);
 			return this->gameMap;
 			break;
 		}
 		case (FIVE):{
+			this->gameMap = NULL;
+			delete this->gameMap;
 			this->gameMap = new GameMap(FIVE);
 			return this->gameMap;
 			break;
@@ -49,9 +52,6 @@ public:
 		}
 	}
 
-	GameMap getGeneratedGameMap(){
-		this->gameMap;
-	}
-};
-*/
-
+GameMap * GameMapDriver::getGeneratedGameMap(){
+	return this->gameMap;
+}

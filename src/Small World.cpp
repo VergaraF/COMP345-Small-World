@@ -11,11 +11,10 @@
 
 int main() {
 
-	GameMapDriver gameMapDriver;
+	GameMapDriver* gameMapDriver = new GameMapDriver();
 	int players;
 	std::cout << "How many players are going to play the game? Insert a numeric value from 2 to 5  : ";
 	std::cin >> players;
 
-	gameMapDriver = new GameMapDriver(players);
 	return 0;
 }

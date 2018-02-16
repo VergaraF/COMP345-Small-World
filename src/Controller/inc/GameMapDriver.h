@@ -15,12 +15,12 @@
 
 class GameMapDriver{
 private:
-	GameMap gameMap;
+	GameMap* gameMap;
 public:
 	GameMapDriver();
 	~GameMapDriver();
-	GameMap createGameMapForNumberOfPlayers(int);
-	GameMap getGeneratedGameMap();
+	GameMap* createGameMapForNumberOfPlayers(int);
+	GameMap* getGeneratedGameMap();
 };
 
 

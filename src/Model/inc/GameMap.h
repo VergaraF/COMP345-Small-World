@@ -31,6 +31,7 @@ private:
 	Graph gameMap;
 
 public:
+	GameMap();
 	GameMap(Players);
 	GameMap(int, Region*, Graph::vertex_descriptor*);
 	~GameMap();
