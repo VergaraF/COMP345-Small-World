@@ -11,6 +11,7 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
 #include "../../Model/inc/GameMap.h"
+#include <iostream>
 
 
 class GameMapDriver{

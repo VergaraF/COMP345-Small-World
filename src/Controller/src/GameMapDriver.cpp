@@ -5,8 +5,6 @@
  *      Author: fvergara
  */
 
-#include <boost/graph/graph_traits.hpp>
-#include <boost/graph/undirected_graph.hpp>
 #include "../inc/GameMapDriver.h"
 
 GameMapDriver::GameMapDriver(){
@@ -14,11 +12,12 @@ GameMapDriver::GameMapDriver(){
 }
 
 GameMapDriver::~GameMapDriver(){
-	this->gameMap = NULL;
-	delete this->gameMap;
+	//this->gameMap = NULL;
+	//delete this->gameMap;
 };
 
-GameMap * GameMapDriver::createGameMapForNumberOfPlayers(int players){
+GameMap*  GameMapDriver::createGameMapForNumberOfPlayers(int players){
+	std::cout << "Creating map" << std::endl;
 		switch (players){
 		case (TWO):{
 			this->gameMap = NULL;
@@ -28,33 +27,38 @@ GameMap * GameMapDriver::createGameMapForNumberOfPlayers(int players){
 			break;
 		}
 		case (THREE) : {
-			this->gameMap = NULL;
-			delete this->gameMap;
-			this->gameMap = new GameMap(THREE);
+		//	this->gameMap = NULL;
+		//	delete this->gameMap;
+		//	this->gameMap = new GameMap(THREE);
+			std::cout << "Game map for three players created" << std::endl;
 			return this->gameMap;
 			break;
 		}
 		case (FOUR): {
-			this->gameMap = NULL;
-			delete this->gameMap;
-			this->gameMap = new GameMap(FOUR);
+		//	this->gameMap = NULL;
+		//	delete this->gameMap;
+		//	this->gameMap = new GameMap(FOUR);
+			std::cout << "Game map for four players created" << std::endl;
 			return this->gameMap;
 			break;
 		}
 		case (FIVE):{
-			this->gameMap = NULL;
-			delete this->gameMap;
-			this->gameMap = new GameMap(FIVE);
+		//	this->gameMap = NULL;
+		//	delete this->gameMap;
+		//	this->gameMap = new GameMap(FIVE);
+			std::cout << "Game map for five players created" << std::endl;
 			return this->gameMap;
 			break;
 		}
 		default: {
-			throw "Invalid number of players";
+			std::cout << "Invalid number of players" << std::endl;
+
+			return this->gameMap;
 			break;
 		}
 		}
 	}
 
-GameMap * GameMapDriver::getGeneratedGameMap(){
+GameMap*  GameMapDriver::getGeneratedGameMap(){
 	return this->gameMap;
 }

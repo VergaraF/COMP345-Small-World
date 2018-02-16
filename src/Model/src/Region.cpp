@@ -10,6 +10,7 @@
 #include "../inc/Region.h"
 
 Region::Region(){ // @suppress("Class members should be properly initialized")
+	std::cout << "Creating default region" << std::endl;
 	this->tokens = 0;
 }
 

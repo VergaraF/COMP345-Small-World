@@ -13,7 +13,13 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
 
-typedef boost::undirected_graph<Region> Graph;
+typedef boost::adjacency_list<boost::listS,
+                              boost::listS,
+                              boost::undirectedS,
+                              boost::no_property,
+                              Region, //this is the type of the edge properties
+                              boost::no_property,
+                              boost::listS> Graph;
 
 enum Players{ TWO = 2,
 			  THREE = 3,
@@ -35,8 +41,8 @@ public:
 	GameMap(Players);
 	GameMap(int, Region*, Graph::vertex_descriptor*);
 	~GameMap();
-	Graph::vertex_descriptor addRegion(Region&);
-	Graph * getGameMap();
+	Graph::vertex_descriptor addRegion(Region);
+	Graph* getGameMap();
 	void makeRegionConnection(Graph::vertex_descriptor&, Graph::vertex_descriptor&);
 	void createMapForTwoPlayers(Graph::vertex_descriptor*);
 	void createMapForThreePlayers(Graph::vertex_descriptor*);

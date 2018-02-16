@@ -11,38 +11,39 @@
 #include <boost/graph/undirected_graph.hpp>
 
 GameMap::GameMap(){
-	this->gameMap = new Graph();
+	this->gameMap = new Graph(1);
 };
 
 GameMap::GameMap(Players numberOfPlayers){
-	//There will be always at least 23 regions regardless number of players
 			switch (numberOfPlayers){
 			case (TWO):{
-
+				this->gameMap = new Graph(FOR_TWO_PLAYERS);
 				Region gameRegions[FOR_TWO_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_TWO_PLAYERS];
 				for (int i = 0; i < FOR_TWO_PLAYERS; ++i){
 					//gameRegions[i] = new Region();
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
-
 				createMapForTwoPlayers(vertexDescriptors);
+				std::cout << "Map for two players created" << std::endl;
 				break;
 			}
 			case(THREE): {
 
+				this->gameMap = new Graph(FOR_THREE_PLAYERS);
 				Region gameRegions[FOR_THREE_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_THREE_PLAYERS];
 				for (int i = 0; i < FOR_THREE_PLAYERS; ++i){
 					//gameRegions[i] = new Region();
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
-
 				createMapForThreePlayers(vertexDescriptors);
+				std::cout << "Map for three players created" << std::endl;
 				break;
 			}
 
 			case(FOUR): {
+				this->gameMap = new Graph(FOR_FOUR_PLAYERS);
 				Region gameRegions[FOR_FOUR_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_FOUR_PLAYERS];
 				for (int i = 0; i < FOR_FOUR_PLAYERS; ++i){
@@ -50,9 +51,11 @@ GameMap::GameMap(Players numberOfPlayers){
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
 				createMapForFourPlayers(vertexDescriptors);
+				std::cout << "Map for four players created" << std::endl;
 				break;
 			}
 			case(FIVE):{
+				this->gameMap = new Graph(FOR_FIVE_PLAYERS);
 				Region gameRegions[FOR_FIVE_PLAYERS];
 				Graph::vertex_descriptor vertexDescriptors[FOR_FIVE_PLAYERS];
 				for (int i = 0; i < FOR_FIVE_PLAYERS; ++i){
@@ -60,6 +63,7 @@ GameMap::GameMap(Players numberOfPlayers){
 					vertexDescriptors[i] = addRegion(gameRegions[i]);
 				}
 				createMapForFourPlayers(vertexDescriptors);
+				std::cout << "Map for five players created" << std::endl;
 				break;
 			}
 			default: {
@@ -565,20 +569,25 @@ void GameMap::createMapForFivePlayers(Graph::vertex_descriptor* vertexDescriptor
 	}
 
 void GameMap::makeRegionConnection(Graph::vertex_descriptor& region1, Graph::vertex_descriptor& region2){
-	this->gameMap->add_edge(region1, region2);
+	//this->gameMap->add_edge(region1, region2);
+	boost::add_edge(region1, region2, *this->gameMap);
+	//boost::add_edge(region1, region2, this->gameMap);
 }
 
-Graph::vertex_descriptor GameMap::addRegion(Region& reg){
-	return this->gameMap->add_vertex(reg);
+Graph::vertex_descriptor GameMap::addRegion(Region reg){
+	std::cout << "Adding region to the map" << std::endl;
+	//boost::add_vertex(*this->gameMap);
+	return boost::add_vertex(*this->gameMap);
+	//return this->gameMap->add_vertex(reg);
 }
 
-Graph * GameMap::getGameMap(){
+Graph* GameMap::getGameMap(){
 	return this->gameMap;
 }
 
 GameMap::~GameMap(){
-	this->gameMap = NULL;
-	delete this->gameMap;
+	//this->gameMap = NULL;
+//	delete this->gameMap;
 }
 
 
