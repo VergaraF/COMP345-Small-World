@@ -6,40 +6,31 @@
  */
 
 #include <iostream>
-#include "Player.h"
-#include "Region.h"
+#include "../inc/Player.h"
+#include "../inc/Region.h"
 
-class Region {
-private:
-	Player& ownedBy;
-	unsigned int tokens;
+Region::Region(){ // @suppress("Class members should be properly initialized")
+	this->tokens = 0;
+}
 
-public:
-	Region(Player& pl, unsigned int tokens = 0){
-		this->ownedBy = pl;
-		this->tokens = tokens;
-	}
+Region::Region(Player& pl, unsigned int tokens = 0){
+	this->ownedBy = pl;
+	this->tokens = tokens;
+}
 
-	Region(){ // @suppress("Class members should be properly initialized")
-		this->tokens = 0;
-	}
-
-	Player getOwnerPlayer(){
+Player Region::getOwnerPlayer(){
 		return this->ownedBy;
-	}
+}
 
-	unsigned int getTokens(){
-		return this->tokens;
-	}
+unsigned int Region::getTokens(){
+	return this->tokens;
+}
 
-	void setOwnerPlayer(Player pl){
-		this->ownedBy = pl;
-	}
+void Region::setOwnerPlayer(Player& pl){
+	this->ownedBy = pl;
+}
 
-	void setTokens(unsigned int token){
+void Region::setTokens(unsigned int token){
 		this->tokens = token;
-	}
-
-};
-
+}
 

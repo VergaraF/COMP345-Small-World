@@ -19,7 +19,7 @@ public:
 	Region(Player&, unsigned int);
 	Region();
 	Player getOwnerPlayer();
-	int getTokens();
+	unsigned int getTokens();
 	void setOwnerPlayer(Player&);
 	void setTokens(unsigned int);
 };

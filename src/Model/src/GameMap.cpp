@@ -10,9 +10,8 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
 
-GameMap GameMap::GameMap(){} // @suppress("No return")
 
-GameMap GameMap::GameMap(Players numberOfPlayers){
+GameMap::GameMap(Players numberOfPlayers){
 	//There will be always at least 23 regions regardless number of players
 			switch (numberOfPlayers){
 			case (TWO):{
