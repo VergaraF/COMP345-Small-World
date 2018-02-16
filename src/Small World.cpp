@@ -7,9 +7,15 @@
 //============================================================================
 
 #include <iostream>
-using namespace std;
+#include "GameMapDriver.h"
 
 int main() {
-	cout << "Test" << endl; // prints Test
+
+	GameMapDriver gameMapDriver;
+	int players;
+	std::cout << "How many players are going to play the game? Insert a numeric value from 2 to 5  : ";
+	std::cin >> players;
+
+	gameMapDriver = new GameMapDriver(players);
 	return 0;
 }

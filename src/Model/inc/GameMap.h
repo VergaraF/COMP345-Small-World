@@ -37,9 +37,10 @@ public:
 	Graph::vertex_descriptor addRegion(Region&);
 	Graph getGameMap();
 	void makeRegionConnection(Graph::vertex_descriptor&, Graph::vertex_descriptor&);
-	void createMapForTwoPlayers(Region*, Graph::vertex_descriptor*);
-
-
+	void createMapForTwoPlayers(Graph::vertex_descriptor*);
+	void createMapForThreePlayers(Graph::vertex_descriptor*);
+	void createMapForFourPlayers(Graph::vertex_descriptor*);
+	void createMapForFivePlayers(Graph::vertex_descriptor*);
 
 };
 

@@ -6,161 +6,154 @@
  */
 
 #include <iostream>
-#include "Region.h"
-#include "GameMap.h"
+#include "../inc/GameMap.h"
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
 
-class GameMap{
-private:
-	Graph gameMap;
+GameMap GameMap::GameMap(){} // @suppress("No return")
 
-public:
-	GameMap() {}
+GameMap GameMap::GameMap(Players numberOfPlayers){
+	//There will be always at least 23 regions regardless number of players
+			switch (numberOfPlayers){
+			case (TWO):{
 
-	GameMap(Players numberOfPlayers){
+				Region gameRegions[FOR_TWO_PLAYERS];
+				Graph::vertex_descriptor vertexDescriptors[FOR_TWO_PLAYERS];
+				for (int i = 0; i < FOR_TWO_PLAYERS; ++i){
+					gameRegions[i] = new Region();
+					vertexDescriptors[i] = addRegion(gameRegions[i]);
+				}
 
-		//There will be always at least 23 regions regardless number of players
-		switch (numberOfPlayers){
-		case (TWO):{
+				createMapForTwoPlayers(vertexDescriptors);
+				break;
+			}
+			case(THREE): {
 
-			Region gameRegions[FOR_TWO_PLAYERS];
-			Graph::vertex_descriptor vertexDescriptors[FOR_TWO_PLAYERS];
-			for (int i = 0; i < FOR_TWO_PLAYERS; ++i){
-				gameRegions[i] = new Region();
-				vertexDescriptors[i] = addRegion(gameRegions[i]);
+				Region gameRegions[FOR_THREE_PLAYERS];
+				Graph::vertex_descriptor vertexDescriptors[FOR_THREE_PLAYERS];
+				for (int i = 0; i < FOR_THREE_PLAYERS; ++i){
+					gameRegions[i] = new Region();
+					vertexDescriptors[i] = addRegion(gameRegions[i]);
+				}
+
+				createMapForThreePlayers(vertexDescriptors);
+				break;
 			}
 
-			createMapForTwoPlayers(vertexDescriptors);
-			break;
-		}
-		case(THREE): {
-
-			Region gameRegions[FOR_THREE_PLAYERS];
-			Graph::vertex_descriptor vertexDescriptors[FOR_THREE_PLAYERS];
-			for (int i = 0; i < FOR_THREE_PLAYERS; ++i){
-				gameRegions[i] = new Region();
-				vertexDescriptors[i] = addRegion(gameRegions[i]);
+			case(FOUR): {
+				Region gameRegions[FOR_FOUR_PLAYERS];
+				Graph::vertex_descriptor vertexDescriptors[FOR_FOUR_PLAYERS];
+				for (int i = 0; i < FOR_FOUR_PLAYERS; ++i){
+					gameRegions[i] = new Region();
+					vertexDescriptors[i] = addRegion(gameRegions[i]);
+				}
+				createMapForFourPlayers(vertexDescriptors);
+				break;
+			}
+			case(FIVE):{
+				Region gameRegions[FOR_FIVE_PLAYERS];
+				Graph::vertex_descriptor vertexDescriptors[FOR_FIVE_PLAYERS];
+				for (int i = 0; i < FOR_FIVE_PLAYERS; ++i){
+					gameRegions[i] = new Region();
+					vertexDescriptors[i] = addRegion(gameRegions[i]);
+				}
+				createMapForFourPlayers(vertexDescriptors);
+				break;
+			}
+			default: {
+				throw "Invalid number of players";
+				break;
 			}
 
-			createMapForThreePlayers(vertexDescriptors);
-			break;
-		}
-
-		case(FOUR): {
-			Region gameRegions[FOR_FOUR_PLAYERS];
-			Graph::vertex_descriptor vertexDescriptors[FOR_FOUR_PLAYERS];
-			for (int i = 0; i < FOR_FOUR_PLAYERS; ++i){
-				gameRegions[i] = new Region();
-				vertexDescriptors[i] = addRegion(gameRegions[i]);
 			}
-			createMapForFourPlayers(vertexDescriptors);
-			break;
-		}
-		case(FIVE):{
-			Region gameRegions[FOR_FIVE_PLAYERS];
-			Graph::vertex_descriptor vertexDescriptors[FOR_FIVE_PLAYERS];
-			for (int i = 0; i < FOR_FIVE_PLAYERS; ++i){
-				gameRegions[i] = new Region();
-				vertexDescriptors[i] = addRegion(gameRegions[i]);
-			}
-			createMapForFourPlayers(vertexDescriptors);
-			break;
-		}
-		default: {
-			throw "Invalid number of players";
-			break;
-		}
+}
 
-		}
-	}
+void GameMap::createMapForTwoPlayers(Graph::vertex_descriptor* vertexDescriptors){
+	//we can optimize this hard coded values by using a for loop and liked i to i++,
+			//except for three places where that rule does not apply.
 
-	void createMapForTwoPlayers(Graph::vertex_descriptor* vertexDescriptors){
+			//First row
+			makeRegionConnection(vertexDescriptors[0], vertexDescriptors[1]);
+			makeRegionConnection(vertexDescriptors[0], vertexDescriptors[5]);
 
-		//we can optimize this hard coded values by using a for loop and liked i to i++,
-		//except for three places where that rule does not apply.
+			makeRegionConnection(vertexDescriptors[1], vertexDescriptors[2]);
+			makeRegionConnection(vertexDescriptors[1], vertexDescriptors[6]);
 
-		//First row
-		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[1]);
-		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[5]);
+			makeRegionConnection(vertexDescriptors[2], vertexDescriptors[3]);
+			makeRegionConnection(vertexDescriptors[2], vertexDescriptors[6]);
+			makeRegionConnection(vertexDescriptors[2], vertexDescriptors[7]);
+			makeRegionConnection(vertexDescriptors[2], vertexDescriptors[8]);
 
-		makeRegionConnection(vertexDescriptors[1], vertexDescriptors[2]);
-		makeRegionConnection(vertexDescriptors[1], vertexDescriptors[6]);
+			makeRegionConnection(vertexDescriptors[3], vertexDescriptors[4]);
+			makeRegionConnection(vertexDescriptors[3], vertexDescriptors[8]);
+			makeRegionConnection(vertexDescriptors[3], vertexDescriptors[9]);
 
-		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[3]);
-		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[6]);
-		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[7]);
-		makeRegionConnection(vertexDescriptors[2], vertexDescriptors[8]);
+			makeRegionConnection(vertexDescriptors[4], vertexDescriptors[9]);
+			makeRegionConnection(vertexDescriptors[4], vertexDescriptors[10]);
 
-		makeRegionConnection(vertexDescriptors[3], vertexDescriptors[4]);
-		makeRegionConnection(vertexDescriptors[3], vertexDescriptors[8]);
-		makeRegionConnection(vertexDescriptors[3], vertexDescriptors[9]);
+			//Second row
+			makeRegionConnection(vertexDescriptors[5], vertexDescriptors[6]);
+			makeRegionConnection(vertexDescriptors[5], vertexDescriptors[11]);
 
-		makeRegionConnection(vertexDescriptors[4], vertexDescriptors[9]);
-		makeRegionConnection(vertexDescriptors[4], vertexDescriptors[10]);
+			makeRegionConnection(vertexDescriptors[6], vertexDescriptors[7]);
+			makeRegionConnection(vertexDescriptors[6], vertexDescriptors[11]);
+			makeRegionConnection(vertexDescriptors[6], vertexDescriptors[12]);
 
-		//Second row
-		makeRegionConnection(vertexDescriptors[5], vertexDescriptors[6]);
-		makeRegionConnection(vertexDescriptors[5], vertexDescriptors[11]);
+			makeRegionConnection(vertexDescriptors[7], vertexDescriptors[8]);
+			makeRegionConnection(vertexDescriptors[7], vertexDescriptors[12]);
+			makeRegionConnection(vertexDescriptors[7], vertexDescriptors[13]);
 
-		makeRegionConnection(vertexDescriptors[6], vertexDescriptors[7]);
-		makeRegionConnection(vertexDescriptors[6], vertexDescriptors[11]);
-		makeRegionConnection(vertexDescriptors[6], vertexDescriptors[12]);
+			makeRegionConnection(vertexDescriptors[8], vertexDescriptors[9]);
+			makeRegionConnection(vertexDescriptors[8], vertexDescriptors[13]);
+			makeRegionConnection(vertexDescriptors[8], vertexDescriptors[14]);
 
-		makeRegionConnection(vertexDescriptors[7], vertexDescriptors[8]);
-		makeRegionConnection(vertexDescriptors[7], vertexDescriptors[12]);
-		makeRegionConnection(vertexDescriptors[7], vertexDescriptors[13]);
+			makeRegionConnection(vertexDescriptors[9], vertexDescriptors[10]);
+			makeRegionConnection(vertexDescriptors[9], vertexDescriptors[14]);
 
-		makeRegionConnection(vertexDescriptors[8], vertexDescriptors[9]);
-		makeRegionConnection(vertexDescriptors[8], vertexDescriptors[13]);
-		makeRegionConnection(vertexDescriptors[8], vertexDescriptors[14]);
+			makeRegionConnection(vertexDescriptors[10], vertexDescriptors[14]);
+			makeRegionConnection(vertexDescriptors[10], vertexDescriptors[15]);
 
-		makeRegionConnection(vertexDescriptors[9], vertexDescriptors[10]);
-		makeRegionConnection(vertexDescriptors[9], vertexDescriptors[14]);
+			//third row
+			makeRegionConnection(vertexDescriptors[11], vertexDescriptors[12]);
+			makeRegionConnection(vertexDescriptors[11], vertexDescriptors[16]);
+			makeRegionConnection(vertexDescriptors[11], vertexDescriptors[17]);
 
-		makeRegionConnection(vertexDescriptors[10], vertexDescriptors[14]);
-		makeRegionConnection(vertexDescriptors[10], vertexDescriptors[15]);
+			makeRegionConnection(vertexDescriptors[12], vertexDescriptors[13]);
+			makeRegionConnection(vertexDescriptors[12], vertexDescriptors[17]);
+			makeRegionConnection(vertexDescriptors[12], vertexDescriptors[17]);
+			makeRegionConnection(vertexDescriptors[12], vertexDescriptors[18]);
 
-		//third row
-		makeRegionConnection(vertexDescriptors[11], vertexDescriptors[12]);
-		makeRegionConnection(vertexDescriptors[11], vertexDescriptors[16]);
-		makeRegionConnection(vertexDescriptors[11], vertexDescriptors[17]);
+			makeRegionConnection(vertexDescriptors[13], vertexDescriptors[14]);
+			makeRegionConnection(vertexDescriptors[13], vertexDescriptors[18]);
+			makeRegionConnection(vertexDescriptors[13], vertexDescriptors[19]);
+			makeRegionConnection(vertexDescriptors[13], vertexDescriptors[20]);
 
-		makeRegionConnection(vertexDescriptors[12], vertexDescriptors[13]);
-		makeRegionConnection(vertexDescriptors[12], vertexDescriptors[17]);
-		makeRegionConnection(vertexDescriptors[12], vertexDescriptors[17]);
-		makeRegionConnection(vertexDescriptors[12], vertexDescriptors[18]);
+			makeRegionConnection(vertexDescriptors[14], vertexDescriptors[15]);
+			makeRegionConnection(vertexDescriptors[14], vertexDescriptors[20]);
+			makeRegionConnection(vertexDescriptors[14], vertexDescriptors[21]);
 
-		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[14]);
-		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[18]);
-		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[19]);
-		makeRegionConnection(vertexDescriptors[13], vertexDescriptors[20]);
+			makeRegionConnection(vertexDescriptors[15], vertexDescriptors[21]);
+			makeRegionConnection(vertexDescriptors[15], vertexDescriptors[22]);
 
-		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[15]);
-		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[20]);
-		makeRegionConnection(vertexDescriptors[14], vertexDescriptors[21]);
+			//fourth row
+			makeRegionConnection(vertexDescriptors[16], vertexDescriptors[17]);
 
-		makeRegionConnection(vertexDescriptors[15], vertexDescriptors[21]);
-		makeRegionConnection(vertexDescriptors[15], vertexDescriptors[22]);
+			makeRegionConnection(vertexDescriptors[17], vertexDescriptors[18]);
 
-		//fourth row
-		makeRegionConnection(vertexDescriptors[16], vertexDescriptors[17]);
+			makeRegionConnection(vertexDescriptors[18], vertexDescriptors[19]);
 
-		makeRegionConnection(vertexDescriptors[17], vertexDescriptors[18]);
+			makeRegionConnection(vertexDescriptors[19], vertexDescriptors[20]);
 
-		makeRegionConnection(vertexDescriptors[18], vertexDescriptors[19]);
+			makeRegionConnection(vertexDescriptors[20], vertexDescriptors[21]);
+			makeRegionConnection(vertexDescriptors[20], vertexDescriptors[22]);
 
-		makeRegionConnection(vertexDescriptors[19], vertexDescriptors[20]);
-
-		makeRegionConnection(vertexDescriptors[20], vertexDescriptors[21]);
-		makeRegionConnection(vertexDescriptors[20], vertexDescriptors[22]);
-
-		makeRegionConnection(vertexDescriptors[21], vertexDescriptors[22]);
+			makeRegionConnection(vertexDescriptors[21], vertexDescriptors[22]);
 
 
-	}
 
-	void createMapForThreePlayers(Graph::vertex_descriptor* vertexDescriptors){
+}
+
+void GameMap::createMapForThreePlayers(Graph::vertex_descriptor* vertexDescriptors){
 		//As for MapForTwoPlayers function, this can be optimized using a for loop.
 		//I'll apply that approach after I get my "bruteforce" solution
 
@@ -263,9 +256,9 @@ public:
 		makeRegionConnection(vertexDescriptors[27], vertexDescriptors[28]);
 
 		makeRegionConnection(vertexDescriptors[28], vertexDescriptors[29]);
-	}
+}
 
-	void createMapForFourPlayers(Graph::vertex_descriptor* vertexDescriptors){
+void GameMap::createMapForFourPlayers(Graph::vertex_descriptor* vertexDescriptors){
 
 		//brute for solution
 		//TODO: Optimize using loops (or perhaps create a method that will take node1, connectedTo[index1, 2, 3, etc]
@@ -403,7 +396,8 @@ public:
 		makeRegionConnection(vertexDescriptors[37], vertexDescriptors[38]);
 	}
 
-	void createMapForFivePlayer(Graph::vertex_descriptor* vertexDescriptors){
+void GameMap::createMapForFivePlayers(Graph::vertex_descriptor* vertexDescriptors){
+
 		//Bruteforce solution
 		//TODO: Optimize as the other createMap functions
 		makeRegionConnection(vertexDescriptors[0], vertexDescriptors[1]);
@@ -568,20 +562,17 @@ public:
 		makeRegionConnection(vertexDescriptors[46], vertexDescriptors[47]);
 	}
 
-	void makeRegionConnection(Graph::vertex_descriptor& region1, Graph::vertex_descriptor& region2){
-		this->gameMap.add_edge(region1, region2);
-	}
+void GameMap::makeRegionConnection(Graph::vertex_descriptor& region1, Graph::vertex_descriptor& region2){
+	this->gameMap.add_edge(region1, region2);
+}
 
-	Graph::vertex_descriptor addRegion(Region& reg){
-		return this->gameMap.add_vertex(reg);
-	}
+Graph::vertex_descriptor GameMap::addRegion(Region& reg){
+	return this->gameMap.add_vertex(reg);
+}
 
-	Graph getGameMap(){
-		return this->gameMap;
-	}
-
-};
-
+Graph GameMap::getGameMap(){
+	return this->gameMap;
+}
 
 
 
