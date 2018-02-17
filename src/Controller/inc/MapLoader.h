@@ -12,12 +12,12 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "Region.h"
+#include "../../Model/inc/Region.h"
 #include "../../Model/inc/GameMap.h"
 
-GameMap readFile(std::ifstream);
+GameMap readInfoFromFile(std::ifstream);
 
-GameMap readF();
+GameMap readFile();
 
 struct RegionToAdd{
 	int index;

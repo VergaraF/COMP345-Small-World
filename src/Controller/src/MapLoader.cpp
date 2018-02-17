@@ -10,26 +10,28 @@
 
 std::vector<RegionToAdd*> allRegions;
 
-GameMap readF(){
-	std::ifstream input;
-		input.open("MapFile.txt");
+GameMap readFile(){
+//	std::ifstream input = std::ifstream("MapFile.txt");
+	std::ifstream myReadFile;
+	 myReadFile.open("text.txt");
+	//input.open(;
 
-		if(input.fail()) {
+		if(myReadFile.fail()) {
 				std::cout << " File does not exist or it has wrong format" << std::endl;
 				std::cout << "Exit program" << std::endl;
 				//return NULL;
 		}
 
 		GameMap m;
-		m = readFile(input);
+		m = readInfoFromFile(myReadFile);
 		return m;
 }
 
-GameMap readFile(std::ifstream fileContents){
+GameMap readInfoFromFile(std::ifstream fileContents){
 
 		int regionNum(0);
 		std::string regionName;
-		std::vector<int> neighborRegions;
+		std::vector<int> neighbourRegions;
 
 		//read line by line and add to a vector of string tokens
 		std::string token;
@@ -56,14 +58,15 @@ GameMap readFile(std::ifstream fileContents){
 					for (unsigned i=2; i<tokens.size(); i++) {
 						temp.str(tokens[i]);
 						temp >> tempInt;
-						neighborRegions.push_back(tempInt);
+						neighbourRegions.push_back(tempInt);
 					}
 
 					//create a new region for this line
-					Region region();
+					//Region region();
 					RegionToAdd regionToAdd;
 					regionToAdd.index = regionNum;
-					regionToAdd.region = region;
+					//regionToAdd.region = region;
+					regionToAdd.neighbours = neighbourRegions;
 
 
 					//and add it to the list of regions
@@ -72,11 +75,16 @@ GameMap readFile(std::ifstream fileContents){
 			}
 
 		//create empty map
-		Map gameMap;
+		GameMap gameMap(allRegions.size());
 
-		for (unsigned j=0; j<allRegions.size(); j++) {
-			for (unsigned k=0; k<allRegions[j]->mAdjacentIndexes.size(); k++) {
-				gameMap.addEdge(allRegions[j], allRegions[allRegions[j]->mAdjacentIndexes.at(k)]);
+		std::vector<Graph::vertex_descriptor> vertices;
+		for (unsigned i = 0; i < allRegions.size(); i++){
+			//force casting/ - may induce errors
+			vertices.push_back(gameMap.addRegion(Region(allRegions.at(i)->index, 0)));
+		}
+		for (unsigned i = 0; i < allRegions.size(); i++) {
+			for (unsigned j = 0; j < allRegions[i]->neighbours.size(); j++) {
+				gameMap.makeRegionConnection(vertices.at(i),vertices.at(j));
 			}
 		}
 
