@@ -16,10 +16,8 @@
 typedef boost::adjacency_list<boost::listS,
                               boost::listS,
                               boost::undirectedS,
-                              boost::no_property,
-                              Region, //this is the type of the edge properties
-                              boost::no_property,
-                              boost::listS> Graph;
+                              Region,
+							 boost::no_property> Graph;
 
 enum Players{ TWO = 2,
 			  THREE = 3,
@@ -38,12 +36,13 @@ private:
 
 public:
 	GameMap();
+	GameMap(int regions);
 	GameMap(Players);
 	GameMap(int, Region*, Graph::vertex_descriptor*);
 	~GameMap();
 	Graph::vertex_descriptor addRegion(Region);
 	Graph* getGameMap();
-	void makeRegionConnection(Graph::vertex_descriptor&, Graph::vertex_descriptor&);
+	void makeRegionConnection(Graph::vertex_descriptor, Graph::vertex_descriptor);
 	void createMapForTwoPlayers(Graph::vertex_descriptor*);
 	void createMapForThreePlayers(Graph::vertex_descriptor*);
 	void createMapForFourPlayers(Graph::vertex_descriptor*);

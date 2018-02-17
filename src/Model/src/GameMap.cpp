@@ -12,17 +12,23 @@
 
 GameMap::GameMap(){
 	this->gameMap = new Graph(1);
-};
+}
+
+GameMap::GameMap(int regions){
+	this->gameMap = new Graph(regions);
+}
 
 GameMap::GameMap(Players numberOfPlayers){
 			switch (numberOfPlayers){
 			case (TWO):{
 				this->gameMap = new Graph(FOR_TWO_PLAYERS);
-				Region gameRegions[FOR_TWO_PLAYERS];
+				//Region gameRegions[FOR_TWO_PLAYERS];
+				std::vector<Region> gameRegions;
 				Graph::vertex_descriptor vertexDescriptors[FOR_TWO_PLAYERS];
 				for (int i = 0; i < FOR_TWO_PLAYERS; ++i){
 					//gameRegions[i] = new Region();
-					vertexDescriptors[i] = addRegion(gameRegions[i]);
+					gameRegions.push_back(Region(i, 0));
+					vertexDescriptors[i] = addRegion(gameRegions.at(i));
 				}
 				createMapForTwoPlayers(vertexDescriptors);
 				std::cout << "Map for two players created" << std::endl;
@@ -31,11 +37,13 @@ GameMap::GameMap(Players numberOfPlayers){
 			case(THREE): {
 
 				this->gameMap = new Graph(FOR_THREE_PLAYERS);
-				Region gameRegions[FOR_THREE_PLAYERS];
+				//Region gameRegions[FOR_THREE_PLAYERS];
+				std::vector<Region> gameRegions;
 				Graph::vertex_descriptor vertexDescriptors[FOR_THREE_PLAYERS];
 				for (int i = 0; i < FOR_THREE_PLAYERS; ++i){
 					//gameRegions[i] = new Region();
-					vertexDescriptors[i] = addRegion(gameRegions[i]);
+					gameRegions.push_back(Region(i, 0));
+					vertexDescriptors[i] = addRegion(gameRegions.at(i));
 				}
 				createMapForThreePlayers(vertexDescriptors);
 				std::cout << "Map for three players created" << std::endl;
@@ -44,11 +52,13 @@ GameMap::GameMap(Players numberOfPlayers){
 
 			case(FOUR): {
 				this->gameMap = new Graph(FOR_FOUR_PLAYERS);
-				Region gameRegions[FOR_FOUR_PLAYERS];
+				//Region gameRegions[FOR_FOUR_PLAYERS];
+				std::vector<Region> gameRegions;
 				Graph::vertex_descriptor vertexDescriptors[FOR_FOUR_PLAYERS];
 				for (int i = 0; i < FOR_FOUR_PLAYERS; ++i){
 					//gameRegions[i] = new Region();
-					vertexDescriptors[i] = addRegion(gameRegions[i]);
+					gameRegions.push_back(Region(i, 0));
+					vertexDescriptors[i] = addRegion(gameRegions.at(i));
 				}
 				createMapForFourPlayers(vertexDescriptors);
 				std::cout << "Map for four players created" << std::endl;
@@ -56,11 +66,13 @@ GameMap::GameMap(Players numberOfPlayers){
 			}
 			case(FIVE):{
 				this->gameMap = new Graph(FOR_FIVE_PLAYERS);
-				Region gameRegions[FOR_FIVE_PLAYERS];
+				//Region gameRegions[FOR_FIVE_PLAYERS];
+				std::vector<Region> gameRegions;
 				Graph::vertex_descriptor vertexDescriptors[FOR_FIVE_PLAYERS];
 				for (int i = 0; i < FOR_FIVE_PLAYERS; ++i){
 				//	gameRegions[i] = new Region();
-					vertexDescriptors[i] = addRegion(gameRegions[i]);
+					gameRegions.push_back(Region(i, 0));
+					vertexDescriptors[i] = addRegion(gameRegions.at(i));
 				}
 				createMapForFourPlayers(vertexDescriptors);
 				std::cout << "Map for five players created" << std::endl;
@@ -568,7 +580,7 @@ void GameMap::createMapForFivePlayers(Graph::vertex_descriptor* vertexDescriptor
 		makeRegionConnection(vertexDescriptors[46], vertexDescriptors[47]);
 	}
 
-void GameMap::makeRegionConnection(Graph::vertex_descriptor& region1, Graph::vertex_descriptor& region2){
+void GameMap::makeRegionConnection(Graph::vertex_descriptor region1, Graph::vertex_descriptor region2){
 	//this->gameMap->add_edge(region1, region2);
 	boost::add_edge(region1, region2, *this->gameMap);
 	//boost::add_edge(region1, region2, this->gameMap);

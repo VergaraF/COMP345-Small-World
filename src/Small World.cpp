@@ -12,8 +12,8 @@
 int main() {
 	GameMapDriver* gameMapDriver = new GameMapDriver();
 	int players = 0;
-	gameMapDriver->createGameMapForNumberOfPlayers(2);
-/*	std::cout << "How many players are going to play the game? Insert a numeric value from 2 to 5  : ";
+	//gameMapDriver->createGameMapForNumberOfPlayers(2);
+	std::cout << "How many players are going to play the game? Insert a numeric value from 2 to 5  : ";
 	std::cin >> players;
 
 	switch (players)  {
@@ -35,6 +35,6 @@ int main() {
 	}
 	default: std::cout << "Invalid number of players" << std::endl;;
 	break;
-	} */
+	}
 	return 0;
 }

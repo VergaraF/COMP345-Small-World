@@ -10,12 +10,14 @@
 #include "../inc/Region.h"
 
 Region::Region(){ // @suppress("Class members should be properly initialized")
+
+	this->index = 0;
 	std::cout << "Creating default region" << std::endl;
-	this->tokens = 0;
+	this->tokens++;
 }
 
-Region::Region(Player& pl, unsigned int tokens = 0){
-	this->ownedBy = pl;
+Region::Region(unsigned int index, unsigned int tokens = 0){
+	this->index = index;
 	this->tokens = tokens;
 }
 

@@ -27,25 +27,25 @@ GameMap*  GameMapDriver::createGameMapForNumberOfPlayers(int players){
 			break;
 		}
 		case (THREE) : {
-		//	this->gameMap = NULL;
-		//	delete this->gameMap;
-		//	this->gameMap = new GameMap(THREE);
+			this->gameMap = NULL;
+			delete this->gameMap;
+			this->gameMap = new GameMap(THREE);
 			std::cout << "Game map for three players created" << std::endl;
 			return this->gameMap;
 			break;
 		}
 		case (FOUR): {
-		//	this->gameMap = NULL;
-		//	delete this->gameMap;
-		//	this->gameMap = new GameMap(FOUR);
+			this->gameMap = NULL;
+		    delete this->gameMap;
+			this->gameMap = new GameMap(FOUR);
 			std::cout << "Game map for four players created" << std::endl;
 			return this->gameMap;
 			break;
 		}
 		case (FIVE):{
-		//	this->gameMap = NULL;
-		//	delete this->gameMap;
-		//	this->gameMap = new GameMap(FIVE);
+			this->gameMap = NULL;
+			delete this->gameMap;
+			this->gameMap = new GameMap(FIVE);
 			std::cout << "Game map for five players created" << std::endl;
 			return this->gameMap;
 			break;

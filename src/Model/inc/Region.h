@@ -12,11 +12,13 @@
 class Region
 {
 private:
+
+	unsigned int index;
 	Player ownedBy;
 	unsigned int tokens;
 
 public:
-	Region(Player&, unsigned int);
+	Region(unsigned int, unsigned int);
 	Region();
 	Player getOwnerPlayer();
 	unsigned int getTokens();
